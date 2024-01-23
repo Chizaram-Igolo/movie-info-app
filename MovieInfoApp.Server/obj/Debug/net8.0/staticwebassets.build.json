@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "s53Q4FCTu7TLIHPnw9PgsykZuIEox3ta4mETKzCmy64=",
+  "Source": "MovieInfoApp.Server",
+  "BasePath": "_content/MovieInfoApp.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\HP\\Source\\Repos\\MovieInfoApp\\movieinfoapp.client\\movieinfoapp.client.esproj",
+      "Version": 2,
+      "Source": "movieinfoapp.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
