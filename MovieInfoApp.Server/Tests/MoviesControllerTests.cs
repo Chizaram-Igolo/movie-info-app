@@ -14,31 +14,25 @@
     {
         public async Task SearchMovies_ReturnsOkResult()
         {
-            // Arrange
             var movieServiceMock = new Mock<MovieService>();
             var memoryCacheMock = new Mock<IMemoryCache>();
 
             var controller = new MoviesController(movieServiceMock.Object, memoryCacheMock.Object);
 
-            // Act
             var result = await controller.SearchMovies("Inception");
 
-            // Assert
             Assert.IsType<OkObjectResult>(result);
         }
 
         public async Task GetMovieDetails_ReturnsOkResult()
         {
-            // Arrange
             var movieServiceMock = new Mock<MovieService>();
             var memoryCacheMock = new Mock<IMemoryCache>();
 
             var controller = new MoviesController(movieServiceMock.Object, memoryCacheMock.Object);
 
-            // Act
             var result = await controller.GetMovieDetails("tt1375666");
 
-            // Assert
             Assert.IsType<OkObjectResult>(result);
         }
     }
