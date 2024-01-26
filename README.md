@@ -3,10 +3,15 @@
 Welcome to the Movie Search App! Search for your favorite movies and explore their details with ease.
 
 <p align="center">
-  <img src="./images/demo.gif" alt="Your GIF" />
+  <img src="./images/demo.gif" alt="Movie Search App Demo" />
 </p>
 
 ## Table of Contents
+
+<p align="center">
+  <img src="./images/screenshot.png" alt="Movie Search App" />
+  <span>Movie Search App</span>
+</p>
 
 - [Overview](#overview)
 - [Features](#features)
