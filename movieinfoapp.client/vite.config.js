@@ -59,9 +59,9 @@ export default defineConfig({
     },
   },
   server: {
-    // proxy: {
-    //   "/api": "http://localhost:5181",
-    // },
+    proxy: {
+      "/api": "http://localhost:5181",
+    },
     port: 5173,
     https: {
       key: fs.readFileSync(keyFilePath),

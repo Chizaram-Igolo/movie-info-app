@@ -40,8 +40,8 @@ namespace MovieInfoApp.Server.Controllers
             return Ok(result);
         }
 
-        [HttpGet("details/{imdbId}")]
-        public async Task<IActionResult> GetMovieDetails(string imdbId)
+        [HttpGet("details")]
+        public async Task<IActionResult> GetMovieDetails([FromQuery] string imdbId)
         {
             if (string.IsNullOrWhiteSpace(imdbId))
             {

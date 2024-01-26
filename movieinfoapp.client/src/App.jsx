@@ -8,50 +8,68 @@ const MovieSearchApp = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [history, setHistory] = useState([]);
+  const [searchHistoryClicked, setSearchHistoryClicked] = useState(false);
 
   const handleSearch = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:5181/api/movies/search?title=${searchQuery}`,
-        { withCredentials: false }
-      );
-      const { Search } = response.data;
+    if (searchQuery !== "") {
+      try {
+        const response = await axios.get(
+          `/api/movies/search?title=${searchQuery}`
+        );
+        const { search } = response.data;
 
-      console.log(response.data);
+        setSearchResults(search || []);
 
-      setSearchResults(Search || []);
-
-      if (searchQuery !== "") {
-        // Update search history
-        setHistory((prevHistory) => {
-          const newHistory = [...prevHistory, searchQuery].slice(-5); // Keep the latest 5 queries
-          return newHistory;
-        });
+        if (searchQuery !== "") {
+          // Update search history
+          setHistory((prevHistory) => {
+            const newHistory = [...prevHistory, searchQuery].slice(-5);
+            return newHistory;
+          });
+        }
+      } catch (error) {
+        console.error("Error searching movies:", error);
       }
-    } catch (error) {
-      console.error("Error searching movies:", error);
     }
   };
 
-  const handleMovieSelect = async (imdbID) => {
+  const handleMovieSelect = async (imdbId) => {
     try {
-      const response = await axios.get(`/api/movies/details?imdbId=${imdbID}`);
+      const response = await axios.get(`/api/movies/details?imdbId=${imdbId}`);
       const selectedMovieData = response.data;
 
       setSelectedMovie(selectedMovieData);
+      setSearchHistoryClicked(false); // Reset search history click status
     } catch (error) {
       console.error("Error fetching movie details:", error);
     }
+  };
+
+  const handleGoBack = () => {
+    setSelectedMovie(null);
   };
 
   const handleSearchQueryChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
+  const handleSearchHistoryItemClick = async (query) => {
+    setSearchQuery(query);
+    setSearchHistoryClicked(true);
+    // You may want to fetch search results here
+    try {
+      const response = await axios.get(`/api/movies/search?title=${query}`);
+      const { search } = response.data;
+      setSearchResults(search || []);
+    } catch (error) {
+      console.error("Error searching movies:", error);
+    }
+  };
+
   useEffect(() => {
     // Fetch initial search results (you may want to fetch popular movies or trending ones)
     handleSearch();
-  }, []);
+  }, [searchHistoryClicked]);
 
   return (
     <div>
@@ -64,34 +82,60 @@ const MovieSearchApp = () => {
         />
         <button onClick={handleSearch}>Search</button>
       </div>
-      <div>
-        <h2>Search Results</h2>
-        <ul>
-          {searchResults.map((movie) => (
-            <li
-              key={movie.imdbID}
-              onClick={() => handleMovieSelect(movie.imdbID)}
-            >
-              {movie.Title} ({movie.Year})
-            </li>
-          ))}
-        </ul>
-      </div>
-      {selectedMovie && (
-        <div>
+      {selectedMovie ? (
+        <div className="selected-movie-div">
           <h2>Selected Movie</h2>
-          <img src={selectedMovie.Poster} alt={selectedMovie.Title} />
-          <p>{selectedMovie.Plot}</p>
-          <p>IMDB Score: {selectedMovie.imdbRating}</p>
-          {/* Add other movie details as needed */}
+          <br />
+          <div className="selected-movie-content">
+            <img src={selectedMovie.poster} alt={selectedMovie.title} />
+            <div className="selected-movie-details">
+              <p>
+                <strong>{selectedMovie.title}</strong>
+              </p>
+              <p>
+                <strong>Released: {selectedMovie.year}</strong>
+              </p>
+              <p>{selectedMovie.plot}</p>
+              <p>
+                <strong>IMDB Score: {selectedMovie.imdbRating}</strong>
+              </p>
+              <br />
+
+              <p>
+                <button onClick={handleGoBack}>Go back</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <h2>{searchHistoryClicked ? "Search Results" : "Search Results"}</h2>
+          <br />
+          <ul style={{ textAlign: "left" }}>
+            {searchResults.map((movie, idx) => (
+              <li
+                key={movie.title + idx}
+                className="movie-list-item"
+                onClick={() => handleMovieSelect(movie.imdbId)}
+              >
+                {movie.title} - ({movie.year})
+              </li>
+            ))}
+          </ul>
         </div>
       )}
       <div>
         <h2>Search History</h2>
         {history.length ? (
-          <ul>
+          <ul style={{ textAlign: "left", cursor: "default" }}>
             {history.map((query, index) => (
-              <li key={index}>{query}</li>
+              <li
+                key={index}
+                className="search-history-list-item"
+                onClick={() => handleSearchHistoryItemClick(query)}
+              >
+                {query}
+              </li>
             ))}
           </ul>
         ) : (

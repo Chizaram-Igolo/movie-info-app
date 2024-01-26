@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:5173",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "C:\\Users\\HP\\Source\\Repos\\MovieInfoApp\\movieinfoapp.server\\..\\movieinfoapp.client",
+"WorkingDirectory": "C:\\Users\\HP\\Documents\\projects\\MovieInfoApp\\movieinfoapp.server\\..\\movieinfoapp.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

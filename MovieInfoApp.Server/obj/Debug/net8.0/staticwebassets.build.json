@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "s53Q4FCTu7TLIHPnw9PgsykZuIEox3ta4mETKzCmy64=",
+  "Hash": "92rEoZLab2gxQdpydz5vssdxqf2kxOZOUeafmH6D3H8=",
   "Source": "MovieInfoApp.Server",
   "BasePath": "_content/MovieInfoApp.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\HP\\Source\\Repos\\MovieInfoApp\\movieinfoapp.client\\movieinfoapp.client.esproj",
+      "Identity": "C:\\Users\\HP\\Documents\\projects\\MovieInfoApp\\movieinfoapp.client\\movieinfoapp.client.esproj",
       "Version": 2,
       "Source": "movieinfoapp.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

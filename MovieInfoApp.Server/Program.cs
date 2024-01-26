@@ -1,11 +1,29 @@
+using MovieInfoApp.Server.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("reactApp", builder =>
+    {
+        builder.WithOrigins("https://localhost:5173");
+        builder.AllowAnyHeader();
+        builder.AllowAnyMethod();
+        builder.AllowCredentials();
+    });
+});
+
+// Register your services here
+builder.Services.AddScoped<MovieService>();
+builder.Services.AddMemoryCache(); // Add this line if you haven't added it yet
+
+// Register HttpClient
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
@@ -24,6 +42,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("reactApp");
 
 app.MapFallbackToFile("/index.html");
 

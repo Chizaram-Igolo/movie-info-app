@@ -3551,11 +3551,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Source\\Repos\\MovieInfoApp\\movieinfoapp.server\\MovieInfoApp.Server.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Documents\\projects\\MovieInfoApp\\movieinfoapp.server\\MovieInfoApp.Server.csproj",
       "projectName": "MovieInfoApp.Server",
-      "projectPath": "C:\\Users\\HP\\Source\\Repos\\MovieInfoApp\\movieinfoapp.server\\MovieInfoApp.Server.csproj",
+      "projectPath": "C:\\Users\\HP\\Documents\\projects\\MovieInfoApp\\movieinfoapp.server\\MovieInfoApp.Server.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Source\\Repos\\MovieInfoApp\\movieinfoapp.server\\obj\\",
+      "outputPath": "C:\\Users\\HP\\Documents\\projects\\MovieInfoApp\\movieinfoapp.server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

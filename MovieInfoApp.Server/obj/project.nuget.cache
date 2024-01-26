@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7Av0K14eMX3e5fthnTBhUbOuK1vsTIBo4i6pt6aXa8LDPNysaXyJ6t7ACvskSqpUTvqvhzifHDMRwAf0CmiX5w==",
+  "dgSpecHash": "wUSmoxV1EBRlRGROn+TZRnW6umqr1ZMNkQAMAb/y2X5OY2oWx6TWcAXNeJg6Y8r13XeIGHQqB+CXnyqeCLqsvg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Source\\Repos\\MovieInfoApp\\movieinfoapp.server\\MovieInfoApp.Server.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Documents\\projects\\MovieInfoApp\\movieinfoapp.server\\MovieInfoApp.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.1\\microsoft.aspnetcore.spaproxy.8.0.1.nupkg.sha512",

@@ -1,19 +1,82 @@
-﻿#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
 tr:nth-child(even) {
-    background: #F2F2F2;
+  background: #f2f2f2;
 }
 
 tr:nth-child(odd) {
-    background: #FFF;
+  background: #fff;
 }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
+th,
+td {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.movie-list-item,
+.search-history-list-item {
+  margin-bottom: 8px;
+  background: #333;
+  padding: 3px 20px;
+  cursor: pointer;
+}
+
+/* Add these styles to your App.css file */
+
+.selected-movie-div {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.selected-movie-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.selected-movie-content p {
+  margin-bottom: 10px;
+}
+
+.selected-movie-content img {
+  width: 40%; /* Adjust the width as needed */
+  max-width: 100vw;
+  margin-right: 20px;
+}
+
+.selected-movie-details {
+  width: 55%; /* Adjust the width as needed */
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .selected-movie-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .selected-movie-content img {
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+
+  .selected-movie-details {
+    width: 100%;
+  }
 }
